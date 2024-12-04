@@ -86,41 +86,88 @@ nav {
     color: var(--white);
 }
 
+
+
+
+
+/* Estilo para o menu de navegação */
+.nav_links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav_links li {
+    margin: 0 10px;
+}
+
+/* Esconder o menu em telas pequenas */
+@media (max-width: 768px) {
+    .nav_links {
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 60px; /* Ajuste conforme a altura do header */
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav_links.open {
+        display: flex;
+    }
+
+    .nav_menu_btn {
+        display: block;
+    }
+}
+
+/* Mostrar o botão de menu apenas em telas pequenas */
 .nav_menu_btn {
-    font-size: 1.5rem;
-    color: var(--white);
+    display: none;
     cursor: pointer;
 }
 
-.nav_links{
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    padding: 2rem;
+/* Exibir o botão de menu em telas menores */
+@media (max-width: 768px) {
+    .nav_menu_btn {
+        display: block;
+    }
+}
+
+/* Ajuste do botão de pesquisa */
+.nav_search {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: var(--primary-color);
-    transition: 0.5s;
-    z-index: -1;
-    /* transform translateY(-100%); */
 }
 
-.nav_links.open {
-    transform: translateY(0);
-}
-
-.nav_links a{
-    font-weight: 600;
-    color: var(--white);
-}
-
-.nav_search {
+/* Ajuste do input */
+.nav_search input {
     display: none;
 }
+
+@media (max-width: 768px) {
+    .nav_search input {
+        display: block;
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .header_container{
     display: grid;
@@ -406,96 +453,7 @@ nav {
     text-align: center;
 }
 
-@media (width > 540px) {
-    .deals_container {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
-    .about_grid{
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product_grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer_container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (width > 768px) {
-    nav {
-        position: static;
-        padding: 2rem 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .nav_header {
-        flex: 1;
-        padding: 0;
-        background-color: transparent;
-    }
-
-    .nav_menu_btn {
-        display: none;
-    }
-
-    .nav_logo .logo {
-        color: var(--primary-color);
-    }
-
-    .nav_links {
-        position:static;
-        padding: 0;
-        width: fit-content;
-        flex-direction: row;
-        gap: 3rem;
-        background-color: transparent;
-        transform: none;
-    }
-
-    .nav_links a{
-        color: var(--text-dark);
-    }
-
-    .nav_links a:hover{
-        color: var(--primary-color);
-    }
-
-    .nav_search {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 1rem;
-    }
-
-    .nav_search input {
-        padding-block: 5px;
-        outline: none;
-        border: none;
-        width: 0;
-        font-size: 1rem;
-        color: var(--text-dark);
-        border-bottom: 1px solid var(--text-light);
-        transition: 0.3s;
-    }
-
-    .nav_search.open input {
-        width: 100%;
-        max-width: 15rem;
-    }
-
-    .nav_search span {
-        font-size: 1.5rem;
-        font-weight: 500;
-        color: var(--text-dark);
-        cursor: pointer;
-    }
 
     .header_container {
         padding-top: 0;
@@ -537,20 +495,7 @@ nav {
     .footer_container {
         grid-template-columns: repeat(4, 1fr);
     }
-}
 
-@media (width > 1024px){
-    .deals_container{
-        grid-template-columns: repeat(4, 1fr);
-    }
 
-    .deals_card:nth-child(1){
-        grid-column: unset;
-    }
-
-    .about_grid {
-        gap: 4rem 2rem;
-    }
-}
 
 
